@@ -52,11 +52,11 @@ public class ChatRememberService {
 
         if(userChatRequest.cacheId()!=null) {
             history = cacheService.getValue(userChatRequest.cacheId());
+        } else {
+            history.add(new Message("system", query1));
         }
 
-        history.add(new Message("system", query1));
         history.add(new Message("user", userChatRequest.message()));
-        
         
         // Create a request
         ChatRequest2 request1 = new ChatRequest2(model, history);
@@ -75,8 +75,5 @@ public class ChatRememberService {
 
 //        String trueQuestion = response1.getChoices().get(0).getMessage().getContent().substring(8);
         return response1;
-
-
-//        questionRepository.saveAll(newQuestionList);
     }
 }
