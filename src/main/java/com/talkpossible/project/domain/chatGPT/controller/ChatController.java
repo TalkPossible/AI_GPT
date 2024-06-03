@@ -24,6 +24,7 @@ public class ChatController {
         chatService.getDailyQuestions();
     }
 
+
     @GetMapping("/chatGPT/remember")
     public ResponseEntity<ChatResponse> getquestions(@RequestBody UserChatRequest userChatRequest) {
         return ResponseEntity.ok(chatRememberService.getDailyQuestions(userChatRequest));
